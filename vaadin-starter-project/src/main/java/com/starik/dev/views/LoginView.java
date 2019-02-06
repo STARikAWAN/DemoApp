@@ -55,7 +55,7 @@ public class LoginView extends VerticalLayout
 		Notification notification = new Notification("Username = admin, Password = admin");
 		notification.getElement().setAttribute("theme", "error");
 		notification.setPosition(Position.BOTTOM_CENTER);
-		notification.setDuration(5000);
+		notification.setDuration(10000);
 		notification.open();
 	}
 	
