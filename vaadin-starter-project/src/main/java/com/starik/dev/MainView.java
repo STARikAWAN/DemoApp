@@ -9,6 +9,8 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
+import com.vaadin.flow.router.AfterNavigationEvent;
+import com.vaadin.flow.router.AfterNavigationObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
@@ -17,7 +19,8 @@ import com.vaadin.flow.router.Route;
  */
 @Route(value = "home", layout = MainAppLayout.class)
 @PageTitle("Home")
-public class MainView extends VerticalLayout {
+public class MainView extends VerticalLayout implements AfterNavigationObserver
+{
 	
 	/**
 	 * 
@@ -68,7 +71,7 @@ public class MainView extends VerticalLayout {
     	// make layout use full height (and grid expand to consume it)
     	setSizeFull();
 
-    	updateList();
+    	//updateList();
     	
     }
     
@@ -76,4 +79,10 @@ public class MainView extends VerticalLayout {
     {
     	grid.setItems(service.findAll(filterText.getValue()));
     }
+
+	@Override
+	public void afterNavigation(AfterNavigationEvent event) {
+		// TODO Auto-generated method stub
+		updateList();
+	}
 }
